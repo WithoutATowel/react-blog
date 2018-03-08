@@ -5,6 +5,29 @@ import Comment from './Comment';
 import './App.css';
 
 class Post extends Component {
+  constructor(props) {
+    super()
+    this.state = {
+      body: props.body,
+      input: ''
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+
+  handleChange(e) {
+    this.setState({
+      input: e.target.value
+    })
+  }
+
+  changeBody(e) {
+    const newVal = document.getElementById('newBody').value;
+    this.setState({
+      body: newVal
+    })
+  }
+
   render() {
  
     const { title, allAuthors, body, comments } = this.props
@@ -20,17 +43,13 @@ class Post extends Component {
 
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <div className="App-intro">
           <h1 className="title">{title}</h1>
-          <p>{authors}</p>
-          <p>{body}</p> 
+          <div>{authors}</div>
+          <div>{this.state.body}</div> 
+          <button onClick={(e) => this.changeBody(e) } >Edit Body</button>
+          <input type='text' id='newBody' value={this.state.input} onChange={this.handleChange} />
           <h3>Comments:</h3>
           {allComments}
-        </div>
       </div>
     );
   }
