@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import Author from './Author';
 import Comment from './Comment';
-import './App.css';
 
 class Post extends Component {
   constructor(props) {
