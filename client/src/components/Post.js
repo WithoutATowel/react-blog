@@ -12,6 +12,17 @@ class Post extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  // componentDidMount() {
+  //   // make axios API call to server route
+  //   // i.e. /api/posts to retrieve posts
+  //   axios.get('/api/posts')
+  //     .then((response) => {
+  //       this.setState({
+  //         body: response.body
+  //       })
+  //     })
+  // }
+
 
   handleChange(e) {
     this.setState({
